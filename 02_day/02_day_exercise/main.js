@@ -202,7 +202,6 @@ console.log(sentence);
 
 let text = 'He earns 5000 euro from salary per month, 10000 euro annual bonus, 15000 euro online courses per month.'
 let numbers = text.match(/\d+/g)
-console.log(numbers);
 let salary = parseInt(numbers[0]), bonus = parseInt(numbers[1]), courses = parseInt(numbers[2])
 let annual_income = salary * 12 + bonus + courses * 12
 console.log(annual_income);
