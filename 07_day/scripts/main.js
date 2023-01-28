@@ -454,17 +454,19 @@ console.log("\n[Number 18]");
     41XTDbE
     ```
 */
-const userIdGenerator = () => {
-    let id = ''
+const userIdGenerator = (number_of_char = 7, number_of_id = 1) => {
     const possibleChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    let n = 7
-    for (let i = 0; i < n; i++) {
-        const randomChar = possibleChars.charAt(Math.floor(Math.random() * possibleChars.length))
-        id += randomChar
+    for (let i = 0; i < number_of_id; i++) {
+        let id = ''
+        for (let j = 0; j < number_of_char; j++) {
+            const randomChar = possibleChars.charAt(Math.floor(Math.random() * possibleChars.length))
+            id += randomChar
+        }
+        console.log(id);
     }
-    return id
 }
-console.log(userIdGenerator());
+// console.log(userIdGenerator());
+userIdGenerator()
 
 // Exercises: Level 3
 console.log('\n');
@@ -490,68 +492,308 @@ console.log("\n[Number 1]");
     '
     ```
 */
+const userIdGeneratedByUser = () => {
+    number_of_char = prompt('Enter number of characters:')
+    number_of_id = prompt('Enter number of ids:')
+    userIdGenerator(number_of_char, number_of_id)
+}
+// userIdGeneratedByUser()
 
+console.log("\n[Number 2]");
 // 2. Write a function name _rgbColorGenerator_ and it generates rgb colors.
+/*
+    ```sh
+    rgbColorGenerator()
+    rgb(125,244,255)
+    ```
+*/
+const rgbColorGenerator = () => {
+    let rgb = []
+    for (let i = 0; i < 3; i++) {
+        const randomNumber = Math.floor(Math.random() * 256)
+        rgb.push(randomNumber)
+    }
+    return `rgb(${rgb[0]},${rgb[1]},${rgb[2]})`
+}
+console.log(rgbColorGenerator());
 
-//     ```sh
-//     rgbColorGenerator()
-//     rgb(125,244,255)
-//     ```
-
+console.log("\n[Number 3]");
 // 3. Write a function **_arrayOfHexaColors_** which return any number of hexadecimal colors in an array.
+const arrayOfHexaColors = (number_of_hexacolors = 1) => {
+    let arr = []
+    for (let i = 0; i < number_of_hexacolors; i++) {
+        let hex_color = '#'
+        for (let j = 0; j < 3; j++) {
+            const randomHexa = Math.floor(Math.random() * 256).toString(16).padStart(2, '0')
+            hex_color += randomHexa.toUpperCase()
+        }
+        arr.push(hex_color)
+    }
+    return arr
+}
+console.log(arrayOfHexaColors(3));
+
+console.log("\n[Number 4]");
 // 4. Write a function **_arrayOfRgbColors_** which return any number of RGB colors in an array.
+const arrayOfRgbColors = (number_of_rgbcolors = 1) => {
+    let arr = []
+    for (let i = 0; i < number_of_rgbcolors; i++) {
+        arr.push(rgbColorGenerator())
+    }
+    return arr
+}
+console.log(arrayOfRgbColors(3));
+
+console.log("\n[Number 5]");
 // 5. Write a function **_convertHexaToRgb_** which converts hexa color to rgb and it returns an rgb color.
+const convertHexaToRgb = (hexa_color) => {
+    console.log(hexa_color);
+    let hexa = [hexa_color.slice(1, 3), hexa_color.slice(3, 5), hexa_color.slice(5, 7)]
+    hexa = hexa.map(x => parseInt(x, 16))
+    return `rgb(${hexa[0]},${hexa[1]},${hexa[2]})`
+}
+console.log(convertHexaToRgb(arrayOfHexaColors().toString()));
+
+console.log("\n[Number 6]");
 // 6. Write a function **_convertRgbToHexa_** which converts rgb to hexa color and it returns an hexa color.
+const convertRgbToHexa = (rgb_color) => {
+    console.log(rgb_color);
+    let cleaned_rgb = rgb_color.replace(/rgb\(|\)/gi, '')
+    let hex = cleaned_rgb.split(',')
+    hex = hex.map(x => parseInt(x).toString(16).padStart(2, '0').toUpperCase())
+    return `#${hex.join('')}`
+}
+console.log(convertRgbToHexa(rgbColorGenerator()));
+
+console.log("\n[Number 7]");
 // 7. Write a function **_generateColors_** which can generate any number of hexa or rgb colors.
+/*
+    ```js
+    console.log(generateColors('hexa', 3)) // ['#a3e12f', '#03ed55', '#eb3d2b']
+    console.log(generateColors('hexa', 1)) // '#b334ef'
+    console.log(generateColors('rgb', 3)) // ['rgb(5, 55, 175)', 'rgb(50, 105, 100)', 'rgb(15, 26, 80)']
+    console.log(generateColors('rgb', 1)) // 'rgb(33,79, 176)'
+    ```
+*/
+const generateColors = (type, num) => {
+    if (type === 'hexa') {
+        if (num === 1) {
+            return arrayOfHexaColors(num).toString()
+        } else if (num >= 1) {
+            return arrayOfHexaColors(num)
+        }
+        return []
+    } else if (type === 'rgb') {
+        if (num === 1) {
+            return arrayOfRgbColors(num).toString()
+        } else if (num >= 1) {
+            return arrayOfRgbColors(num)
+        }
+        return []
+    } else {
+        return 'Invalid Type of Colors'
+    }
+}
+console.log(generateColors('hexa', 3)) // ['#a3e12f', '#03ed55', '#eb3d2b']
+console.log(generateColors('hexa', 1)) // '#b334ef'
+console.log(generateColors('rgb', 3)) // ['rgb(5, 55, 175)', 'rgb(50, 105, 100)', 'rgb(15, 26, 80)']
+console.log(generateColors('rgb', 1)) // 'rgb(33,79, 176)'
 
-//     ```js
-//     console.log(generateColors('hexa', 3)) // ['#a3e12f', '#03ed55', '#eb3d2b']
-//     console.log(generateColors('hexa', 1)) // '#b334ef'
-//     console.log(generateColors('rgb', 3)) // ['rgb(5, 55, 175)', 'rgb(50, 105, 100)', 'rgb(15, 26, 80)']
-//     console.log(generateColors('rgb', 1)) // 'rgb(33,79, 176)'
-//     ```
-
+console.log("\n[Number 8]");
 // 8. Call your function _shuffleArray_, it takes an array as a parameter and it returns a shuffled array
+const shuffleArray = (arr) => {
+    for (let i = arr.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr
+}
+console.log(shuffleArray([1, 2, 3, 4, 5]));
+
+console.log("\n[Number 9]");
 // 9. Call your function _factorial_, it takes a whole number as a parameter and it return a factorial of the number
+const factorial = num => num === 1 ? 1 : num * factorial(num - 1)
+console.log(factorial(5));
+
+console.log("\n[Number 10]");
 // 10. Call your function _isEmpty_, it takes a parameter and it checks if it is empty or not
+const isEmpty = (parameter) => {
+    if (parameter === undefined || parameter === null) return true
+    if (typeof parameter === "string" && parameter.trim() === "") return true
+    if (typeof parameter === 'object' && Object.keys(parameter).length === 0) return true
+    if (Array.isArray(parameter) && parameter.length === 0) return true
+    return false
+}
+console.log(isEmpty([]));
+console.log(isEmpty({}));
+console.log(isEmpty(""));
+console.log(isEmpty(0));
+console.log(isEmpty(null));
+console.log(isEmpty());
+
+console.log("\n[Number 11]");
 // 11. Call your function _sum_, it takes any number of arguments and it returns the sum.
+const calculateSum = (...args) => {
+    return args.reduce((acc, curr) => acc + curr, 0)
+} 
+console.log(calculateSum(1, 2, 3, 4, 5));
+console.log(calculateSum(1, 2, 3));
+console.log(calculateSum());
+
+console.log("\n[Number 12]");
 // 12. Write a function called _sumOfArrayItems_, it takes an array parameter and return the sum of all the items. Check if all the array items are number types. If not give return reasonable feedback.
+const sumOfArrayItems = (arr) => {
+    if (arr.every(item => typeof item === 'number')) {
+        return arr.reduce((acc, curr) => acc + curr, 0)
+    }
+    return 'array items are not a number'
+}
+console.log(sumOfArrayItems([1, 2, 3, 4, 5]));
+console.log(sumOfArrayItems([1, 2, 3]));
+console.log(sumOfArrayItems([1, 2, 'three', true]));
+
+console.log("\n[Number 13]");
 // 13. Write a function called _average_, it takes an array parameter and returns the average of the items. Check if all the array items are number types. If not give return reasonable feedback.
+const averageOfArrayItems = (arr) => {
+    if (arr.every(item => typeof item === 'number')) {
+        return arr.reduce((acc, curr) => acc + curr, 0) / arr.length
+    }
+    return 'array items are not a number'
+}
+console.log(averageOfArrayItems([1, 2, 3, 4, 5]));
+console.log(averageOfArrayItems([1, 2, 3]));
+console.log(averageOfArrayItems([1, 2, 'three', true]));
+
+console.log("\n[Number 14]");
 // 14. Write a function called _modifyArray_ takes array as parameter and modifies the fifth item of the array and return the array. If the array length is less than five it return 'item not found'.
+/*
+    ```js
+    console.log(modifyArray(['Avocado', 'Tomato', 'Potato','Mango', 'Lemon','Carrot']);
+    ```
 
-//     ```js
-//     console.log(modifyArray(['Avocado', 'Tomato', 'Potato','Mango', 'Lemon','Carrot']);
-//     ```
+    ```sh
+    ['Avocado', 'Tomato', 'Potato','Mango', 'LEMON', 'Carrot']
+    ```
 
-//     ```sh
-//     ['Avocado', 'Tomato', 'Potato','Mango', 'LEMON', 'Carrot']
-//     ```
+    ```js
+    console.log(modifyArray(['Google', 'Facebook','Apple', 'Amazon','Microsoft',  'IBM']);
+    ```
 
-//     ```js
-//     console.log(modifyArray(['Google', 'Facebook','Apple', 'Amazon','Microsoft',  'IBM']);
-//     ```
+    ```sh
+    ['Google', 'Facebook','Apple', 'Amazon','MICROSOFT',  'IBM']
+    ```
 
-//     ```sh
-//     ['Google', 'Facebook','Apple', 'Amazon','MICROSOFT',  'IBM']
-//     ```
+    ```js
+    console.log(modifyArray(['Google', 'Facebook','Apple', 'Amazon']);
+    ```
 
-//     ```js
-//     console.log(modifyArray(['Google', 'Facebook','Apple', 'Amazon']);
-//     ```
+    ```sh
+    'Not Found'
+    ```
+*/
+const modifyArray = (arr) => {
+    let n = 5
+    if (arr.length >= 5) {
+        arr[n - 1] = arr[n - 1].toUpperCase()
+        return arr
+    } else {
+        return 'Not Found'
+    }
+}
+console.log(modifyArray(['Avocado', 'Tomato', 'Potato','Mango', 'Lemon','Carrot']));
+console.log(modifyArray(['Google', 'Facebook','Apple', 'Amazon','Microsoft',  'IBM']));
+console.log(modifyArray(['Google', 'Facebook','Apple', 'Amazon']));
 
-//     ```sh
-//       'Not Found'
-//     ```
-
+console.log("\n[Number 15]");
 // 15. Write a function called _isPrime_, which checks if a number is prime number.
+const isPrime = num => (num > 1 && (num % 2 === 0 || num % 3 === 0 || num % 5 === 0))
+console.log(isPrime(9));
+console.log(isPrime(11));
+console.log(isPrime(17));
+
+console.log("\n[Number 16]");
 // 16. Write a functions which checks if all items are unique in the array.
+const isUniqueArray = (arr) => {
+    for (const item of arr) {
+        let count = 0
+        for (let i = 0; i < arr.length; i++) {
+            if (item === arr[i]) count += 1
+        }
+        if (count > 1) return false
+    }
+    return true
+}
+console.log(isUniqueArray(['Avocado', 'Tomato', 'Potato','Mango', 'Lemon','Carrot']));
+console.log(isUniqueArray(['Avocado', 'Mango', 'Potato','Mango']));
+console.log(isUniqueArray([1, 2, 3, 4, 5]));
+console.log(isUniqueArray([1, 2, 3, 1, 5]));
+
+console.log("\n[Number 17]");
 // 17. Write a function which checks if all the items of the array are the same data type.
+const isSameDataTypeArray = (arr) => {
+    let data_type = typeof arr[0]
+    for (const item of arr) {
+        if (typeof item !== data_type) return false
+    }
+    return true
+}
+console.log(isSameDataTypeArray(['Avocado', 'Tomato', 'Potato','Mango', 'Lemon','Carrot']));
+console.log(isSameDataTypeArray(['Avocado', 'Tomato', 1, 2, 3]));
+console.log(isSameDataTypeArray([1, 2, 3, 1, 5]));
+console.log(isSameDataTypeArray([1, 2, 3, 1, [5, 2]]));
+
+console.log("\n[Number 18]");
 // 18. JavaScript variable name does not support special characters or symbols except \$ or \_. Write a function **isValidVariable** which check if a variable is valid or invalid variable.
+const isValidVariable = (variable) => {
+    const regex = /[^A-Za-z0-9\$\_]/g
+    return variable.match(regex) === null
+}
+console.log(isValidVariable('_tryNew'));
+console.log(isValidVariable('some body'));
+
+console.log("\n[Number 19]");
 // 19. Write a function which returns array of seven random numbers in a range of 0-9. All the numbers must be unique.
+/*
+    ```js
+    sevenRandomNumbers()
+    [(1, 4, 5, 7, 9, 8, 0)]
+    ```
+*/
+const sevenRandomNumbers = () => {
+    let arr = []
+    while (arr.length !== 7) {
+        let random_number = Math.floor(Math.random() * 10)
+        if (!arr.includes(random_number)) arr.push(random_number)
+    }
+    return arr
+}
+console.log(sevenRandomNumbers());
 
-//     ```js
-//     sevenRandomNumbers()
-//     [(1, 4, 5, 7, 9, 8, 0)]
-//     ```
-
+console.log("\n[Number 20]");
 // 20. Write a function called reverseCountries, it takes countries array and first it copy the array and returns the reverse of the original array
+const reverseCountries = (arr) => {
+    let new_array = []
+    arr.forEach(item => new_array.push(item));
+
+    let reversed_array = []
+    new_array.forEach(item => reversed_array.unshift(item));
+
+    return reversed_array
+}
+
+const countries_arr = [
+    'Albania',
+    'Bolivia',
+    'Canada',
+    'Denmark',
+    'Ethiopia',
+    'Finland',
+    'Germany',
+    'Hungary',
+    'Ireland',
+    'Japan',
+    'Kenya'
+]
+console.log(countries_arr.join(', '));
+console.log(reverseCountries(countries_arr).join(', '));
+console.log(countries_arr.join(', '));
