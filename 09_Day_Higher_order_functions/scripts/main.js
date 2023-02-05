@@ -362,7 +362,7 @@ console.log("\n[Number 2]");
     ````
 */
 const mostSpokenLanguages = (countries, n) => {
-    
+
     const countSpokenLanguages = (countries) => {
         // Get all spoken languages of all countries
         const arraySpokenLanguages = countries.reduce((acc, item) => [...acc, ...item.languages], [])
@@ -425,7 +425,7 @@ const mostPopulatedCountries = (countries, n) => {
     // Sorting By Population
     const sortedCountry = countries
         .map(item => {
-            return { country: item.name, population: item.population}
+            return { country: item.name, population: item.population }
         })
         .sort((a, b) => b.population - a.population)
     return sortedCountry.slice(0, n)
@@ -472,13 +472,13 @@ console.log("\n[Number 4]");
 const ages = [31, 26, 34, 37, 27, 26, 32, 32, 26, 27, 27, 24, 32, 33, 27, 25, 26, 38, 37, 31, 34, 24, 33, 29, 26]
 
 const statistics = {
-    count: function() {
+    count: function () {
         return ages.length
     },
-    sum: function() {
+    sum: function () {
         return ages.reduce((acc, num) => acc += num, 0)
     },
-    min: function() {
+    min: function () {
         return ages.reduce((acc, num) => {
             if (acc > num) {
                 return num
@@ -486,7 +486,7 @@ const statistics = {
             return acc
         })
     },
-    max: function() {
+    max: function () {
         return ages.reduce((acc, num) => {
             if (acc < num) {
                 return num
@@ -494,13 +494,13 @@ const statistics = {
             return acc
         })
     },
-    range: function() {
+    range: function () {
         return this.max() - this.min()
     },
-    mean: function() {
+    mean: function () {
         return this.sum() / ages.length
     },
-    median: function() {
+    median: function () {
         // Sorted ASC
         const sortedAges = ages.map(item => item).sort();
         const middleIndex = Math.floor(sortedAges.length / 2);
@@ -510,7 +510,7 @@ const statistics = {
             return sortedAges[middleIndex];
         }
     },
-    mode: function() {
+    mode: function () {
         // Remove duplicate value
         const uniqueAges = ages.filter((item, index) => ages.indexOf(item) === index);
         // Create array of object ages
@@ -531,7 +531,7 @@ const statistics = {
 
         return arrayOfObjectAges[0]
     },
-    var: function() {
+    var: function () {
         // Calculate the mean of the array.
         // Subtract the mean from each element in the array.
         // Square each difference and store the result in a new array.
@@ -541,14 +541,14 @@ const statistics = {
         // The result is the variance.
         return sum / squaredSubtractedAges.length
     },
-    std: function() {
+    std: function () {
         // Find the mean of the data set
         // Find the difference between each data point and the mean
         // Square the differences and find their average
         // Take the square root of the result
         return Math.sqrt(this.var())
     },
-    freqDist: function() {
+    freqDist: function () {
         const frequency = {}
         ages.forEach(age => {
             frequency[age] = frequency[age] + 1 || 1;
@@ -561,7 +561,7 @@ const statistics = {
 
         return result.sort((a, b) => b[1] - a[1]).sort((a, b) => b[0] - a[0])
     },
-    describe: function() {
+    describe: function () {
         console.log(`Count: ${this.count()}`);
         console.log(`Sum: ${this.sum()}`);
         console.log(`Min: ${this.min()}`);

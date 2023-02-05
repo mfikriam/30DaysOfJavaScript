@@ -15,7 +15,7 @@ dog.name = 'Pochi'
 dog.legs = 4
 dog.color = 'gold'
 dog.age = 7
-dog.bark = function() {
+dog.bark = function () {
     return 'woof woof'
 }
 console.log(dog);
@@ -27,7 +27,7 @@ console.log(dog['name'], dog['legs'], dog['color'], dog['age'], dog.bark());
 console.log("\n[Number 5]");
 // 5. Set new properties the dog object: breed, getDogInfo
 dog.breed = 'labrador retrivier'
-dog.getDogInfo = function() {
+dog.getDogInfo = function () {
     return `${dog.name} is a ${dog.color} ${dog.breed} dog with ${dog.legs} legs. ${dog.name} is ${dog.age} years old. ${dog.name} likes to say ${dog.bark()}.`
 }
 console.log(dog.getDogInfo());
@@ -92,7 +92,7 @@ console.log("\n[Number 1]");
 // 1. Find the person who has many skills in the users object.
 let usersKeys = Object.keys(users)
 const usersSkillsArr = usersKeys.map(user => {
-    return {name: user, numSkills: users[user]['skills'].length}
+    return { name: user, numSkills: users[user]['skills'].length }
 })
 usersSkillsArr.sort((a, b) => a.numSkills - b.numSkills)
 console.log(usersSkillsArr[usersSkillsArr.length - 1].name);
@@ -167,19 +167,19 @@ const personAccount = {
     lastName: 'Fikri',
     incomes: [],
     expenses: [],
-    totalIncome: function() {
+    totalIncome: function () {
         return this.incomes.reduce((acc, item) => acc += item.amount, 0);
     },
-    totalExpense: function()  {
+    totalExpense: function () {
         return this.expenses.reduce((acc, item) => acc += item.amount, 0);
     },
-    addIncome: function(amount, desc) {
-        this.incomes.push({amount: amount, description: desc});
+    addIncome: function (amount, desc) {
+        this.incomes.push({ amount: amount, description: desc });
     },
-    addExpense: function(amount, desc) {
-        this.expenses.push({'amount': amount, 'description': desc});
+    addExpense: function (amount, desc) {
+        this.expenses.push({ 'amount': amount, 'description': desc });
     },
-    accountBalance: function() {
+    accountBalance: function () {
         console.log(`[${this.firstName} ${this.lastName}'s Account Balance]`);
         console.log(`> Incomes:`);
         for (const item of this.incomes) {
@@ -211,7 +211,7 @@ const usersObject = [
         username: 'Alex',
         email: 'alex@alex.com',
         password: '123123',
-        createdAt:'08/01/2020 9:00 AM',
+        createdAt: '08/01/2020 9:00 AM',
         isLoggedIn: false
     },
     {
@@ -219,7 +219,7 @@ const usersObject = [
         username: 'Asab',
         email: 'asab@asab.com',
         password: '123456',
-        createdAt:'08/01/2020 9:30 AM',
+        createdAt: '08/01/2020 9:30 AM',
         isLoggedIn: true
     },
     {
@@ -227,7 +227,7 @@ const usersObject = [
         username: 'Brook',
         email: 'brook@brook.com',
         password: '123111',
-        createdAt:'08/01/2020 9:45 AM',
+        createdAt: '08/01/2020 9:45 AM',
         isLoggedIn: true
     },
     {
@@ -235,7 +235,7 @@ const usersObject = [
         username: 'Martha',
         email: 'martha@martha.com',
         password: '123222',
-        createdAt:'08/01/2020 9:50 AM',
+        createdAt: '08/01/2020 9:50 AM',
         isLoggedIn: false
     },
     {
@@ -243,7 +243,7 @@ const usersObject = [
         username: 'Thomas',
         email: 'thomas@thomas.com',
         password: '123333',
-        createdAt:'08/01/2020 10:00 AM',
+        createdAt: '08/01/2020 10:00 AM',
         isLoggedIn: false
     }
 ];
@@ -285,7 +285,7 @@ const signUp = (username, email, password) => {
     // '08/01/2020 9:45 AM'
     if (usersObject.every(user => user.username !== username)) {
         const currentDate = new Date();
-        const dateFormat = { 
+        const dateFormat = {
             day: "numeric",
             month: "numeric",
             year: "numeric",
@@ -299,7 +299,7 @@ const signUp = (username, email, password) => {
             const possibleChars = "abcdefghijklmnopqrstuvwxyz0123456789";
             const number_of_char = 6;
             let id = '';
-            while (id === ''){
+            while (id === '') {
                 id = '';
                 for (let i = 0; i < number_of_char; i++) {
                     const randomChar = possibleChars.charAt(Math.floor(Math.random() * possibleChars.length));
