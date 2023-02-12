@@ -175,4 +175,93 @@ const authorBioNode = document.createElement('p');
 authorBioNode.textContent = author.bio;
 authorBioNode.style.width = `${width}px`;
 authorBioNode.style.textAlign = 'center';
+authorBioNode.style.fontSize = '14px';
 wrapper.appendChild(authorBioNode);
+
+// Create Titles, Skills, & Qualifications Wrapper
+let div = document.createElement('div');
+div.classList.add('tsq');
+wrapper.appendChild(div);
+
+// Modifying TSQ
+const tsq = wrapper.querySelector('.tsq');
+tsq.style.width = `${width}px`;
+tsq.style.display = 'flex';
+tsq.style.flexWrap = 'wrap';
+tsq.style.fontSize = '12px';
+tsq.style.alignItems = 'top';
+tsq.style.justifyContent = 'left';
+
+// Adding Titles, Skills, & Qualifications Divs
+div = document.createElement('div');
+div.classList.add('titles');
+tsq.appendChild(div);
+div = document.createElement('div');
+div.classList.add('skills');
+tsq.appendChild(div);
+div = document.createElement('div');
+div.classList.add('qualifications');
+tsq.appendChild(div);
+
+// Modifying TSQ Divs
+const tsqDivs = tsq.querySelectorAll('div');
+console.log(tsqDivs);
+const tsqWidth = [25, 25, 45];
+tsqDivs.forEach((item, i) => {
+  item.style.width = `${tsqWidth[i]}%`;
+});
+
+// Adding Titles
+const authorTitles = asabenehChallenges2020.author.titles;
+const authorTitlesNode = tsq.querySelector('.titles');
+authorTitlesNode.innerHTML = `
+  <h4>Titles</h4>
+  ${authorTitles.map((item) => `<p>${item[0]} ${item[1]}</p>`).join('')}
+`;
+
+// Adding Skills
+const authorSkills = asabenehChallenges2020.author.skills;
+const authorSkillsNode = tsq.querySelector('.skills');
+authorSkillsNode.innerHTML = `
+  <h4>Skills</h4>
+  ${authorSkills.map((skill) => `<p><i class="fas fa-check-square"></i> ${skill}</p>`).join('')}
+`;
+const checkListNode = authorSkillsNode.querySelectorAll('i');
+checkListNode.forEach((icon) => {
+  icon.style.color = green;
+});
+
+// Adding Qualifications
+const authorQualifications = asabenehChallenges2020.author.qualifications;
+const authorQualificationsNode = tsq.querySelector('.qualifications');
+authorQualificationsNode.innerHTML = `
+  <h4>Qualifications</h4>
+  ${authorQualifications.map((item, i) => `<p>${i === 0 ? '📖' : '👨‍🎓'} ${item}</p>`).join('')}
+`;
+
+// Adding Keywords Title
+const keywordTitleNode = document.createElement('h4');
+keywordTitleNode.textContent = 'Keywords';
+wrapper.appendChild(keywordTitleNode);
+
+// Adding Keywords
+const authorKeywords = asabenehChallenges2020.keywords;
+const authorKeywordsDiv = document.createElement('div');
+authorKeywordsDiv.classList.add('keywords');
+wrapper.appendChild(authorKeywordsDiv);
+authorKeywords.forEach((item) => {
+  const wordSpan = document.createElement('div');
+  wordSpan.textContent = `# ${item}`;
+  wordSpan.style.marginRight = '10px';
+  wordSpan.style.marginBottom = '10px';
+  wordSpan.style.background = randomHexColor();
+  wordSpan.style.borderRadius = '20px';
+  wordSpan.style.display = 'inline-block';
+  wordSpan.style.padding = '2px 10px 2px 0px';
+  authorKeywordsDiv.appendChild(wordSpan);
+});
+
+// Modify Keywords
+authorKeywordsNode = wrapper.querySelector('.keywords');
+authorKeywordsNode.style.width = `${width}px`;
+authorKeywordsNode.style.fontSize = '12px';
