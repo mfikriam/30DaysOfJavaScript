@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Solar System: Document Object Model:30 Days Of JavaScript</title>
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&display=swap" rel="stylesheet">
+
+	<style>
+		body {
+			font-family: 'Montserrat';
+			background: url('./images/galaxy.gif');
+			color: azure;
+			text-align: center;
+			padding: 0% 15%;
+		}
+
+		input,
+		select,
+		button {
+			padding: 10px 15px;
+		}
+
+		button {
+			color: azure;
+			background-color: rgb(169, 169, 169, 0.5);
+		}
+
+		header {
+			margin-bottom: 5%;
+		}
+
+		.flex-container {
+			padding: 4% 5%;
+			background-color: rgb(169, 169, 169, 0.2);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.flex-item.image {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.planet-image {
+			/* width: 90%; */
+			width: 70%;
+		}
+
+		.description {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			align-self: flex-start;
+			padding: 2% 0%;
+			width: 60%;
+			margin: auto;
+			background-color: rgb(169, 169, 169, 0.2);
+			font-size: 1em;
+		}
+
+		.description>.planet-name,
+		.description>.mass {
+			font-weight: bold;
+		}
+
+		.description>.mass {
+			width: 6em;
+			height: 6em;
+			background-color: rgb(169, 169, 169, 0.2);
+			border-radius: 50%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin: 0 auto;
+			margin-top: 5%;
+		}
+	</style>
+</head>
+
+<body>
+	<header>
+		<h1>Calculate a weight of an object on a planet</h1>
+		<input type="text" id="mass" placeholder="Mass in Kilogram" />
+		<select>
+			<option value='none'>--select planet-- </option>
+		</select>
+		<button>Calculate weight</button>
+	</header>
+
+	<main>
+		<div class="flex-container">
+			<div class="flex-item image">
+				<img src='./images/earth.png' class="planet-image" />
+			</div>
+			<div class="flex-item description"></div>
+		</div>
+	</main>
+
+	<script src="./scripts/main.js"></script>
+</body>
+
+</html>
