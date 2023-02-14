@@ -1,6 +1,8 @@
 // Exercises: Level 2
 console.log('===================Exercises Level 2===================');
 
+// 2. Generating the keyboard code code using even listener.
+
 // Color
 const green = '#57cc99';
 const black = '#2b2d42';
