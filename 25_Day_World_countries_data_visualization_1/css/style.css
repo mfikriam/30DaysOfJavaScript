@@ -1,0 +1,62 @@
+body {
+  font-family: 'Montserrat';
+  text-align: center;
+  background-color: white;
+}
+
+h2 {
+  color: rgb(255,165,0);
+}
+
+button {
+  padding: 5px 15px;
+  background-color: rgb(255,165,0);
+  border-color: rgb(255,165,0);
+  margin: auto 0.5%;
+}
+
+header {
+  padding: 0.5% 0%;
+  margin-bottom: 2%;
+}
+
+header,
+.graphs {
+  background-color: rgb(241,241,241);
+}
+
+.graphs {
+  padding: 2% 15%;
+  text-align: left;
+  font-size: small;
+}
+
+.graph-wrapper {
+  display: flex;
+  /* justify-content: space-between; */
+  height: 30px;
+  margin-bottom: 1%;
+  align-items: center;
+}
+
+.subject {
+  width: 20%;
+  margin: 0;
+}
+
+.bar-wrapper {
+  display: flex;
+  width: 70%;
+}
+
+.bar {
+  background-color: rgb(242,169,59);
+  border-radius: 2%;
+  height: 25px;
+  /* width: 100%; */
+}
+
+.count {
+  margin-left: 1%;
+  width: 10px;
+}
