@@ -43,8 +43,7 @@ h4 {
 }
 
 #starting-word,
-#any-word,
-#sorting {
+#any-word {
   padding: 1% 0.5%;
   margin: auto 0.5%;
   background-color: #b892ff;
@@ -54,11 +53,25 @@ h4 {
   text-transform: uppercase;
 }
 
+#sorting {
+  padding: 1% 0.5%;
+  margin: auto 0.5%;
+  background-color: #fcbf49;
+  border-color: #fcbf49;
+  color: white;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
 #starting-word.active,
-#any-word.active,
-#sorting.active {
+#any-word.active {
   background-color: #6e44ff;
   border-color: #6e44ff;
+}
+
+#sorting.active {
+  background-color: #f77f00;
+  border-color: #f77f00;
 }
 
 #starting-word {
@@ -83,10 +96,14 @@ h4 {
 
 .letters {
   color: #f21b3f;
+  font-weight: 900;
+  background-color: white;
 }
 
 .count {
   color: #4c956c;
+  font-weight: 900;
+  background-color: white;
 }
 
 .country {

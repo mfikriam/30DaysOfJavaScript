@@ -27,24 +27,22 @@ const showCountries = ({ sort = false, start = false, contains = false }) => {
   if (sort) {
     if (sort === 'ASC') {
       // SORT ASC
-      const filtedCountries = [...countries].sort((a, b) => {
+      const filtedCountries = countries.sort((a, b) => {
         if (a < b) return -1;
         if (a > b) return 1;
         return 0
       });
       addContries(filtedCountries);
-      return;
     }
 
     if (sort === 'DESC') {
       // SORT DESC
-      const filtedCountries = [...countries].sort((a, b) => {
+      const filtedCountries = countries.sort((a, b) => {
         if (a < b) return 1;
         if (a > b) return -1;
         return 0
       });
       addContries(filtedCountries);
-      return;
     }
   }
 
@@ -59,8 +57,6 @@ const showCountries = ({ sort = false, start = false, contains = false }) => {
       <span class="letters">${start}</span> are 
       <span class="count">${filtedCountries.length}</span>.
     `;
-
-    return;
   }
 
   if (contains) {
@@ -74,8 +70,6 @@ const showCountries = ({ sort = false, start = false, contains = false }) => {
       <span class="letters">${contains}</span> are 
       <span class="count">${filtedCountries.length}</span>.
     `;
-
-    return;
   }
 };
 
@@ -91,8 +85,6 @@ const searchInput = body.querySelector('input[type="text"]');
 btnStartingWord.addEventListener('click', () => {
   if (!btnStartingWord.classList.contains('active')) {
     btnAnyWord.classList.remove('active');
-    btnSort.textContent = 'ASC';
-    btnSort.classList.remove('active');
 
     const searchText = searchInput.value;
     showCountries({ start: searchText });
@@ -106,8 +98,6 @@ btnStartingWord.addEventListener('click', () => {
 btnAnyWord.addEventListener('click', () => {
   if (!btnAnyWord.classList.contains('active')) {
     btnStartingWord.classList.remove('active');
-    btnSort.textContent = 'ASC';
-    btnSort.classList.remove('active');
 
     const searchText = searchInput.value;
     showCountries({ contains: searchText });
@@ -118,27 +108,50 @@ btnAnyWord.addEventListener('click', () => {
 
 // Button Sort Event Listener
 btnSort.addEventListener('click', () => {
-  if (!btnSort.classList.contains('active')) {
-    btnStartingWord.classList.remove('active');
-    btnAnyWord.classList.remove('active');
-    showCountries({ sort: 'DESC' });
-    btnSort.textContent = 'DESC';
+  const searchText = searchInput.value;
+  if (searchText === '') {
+    if (!btnSort.classList.contains('active')) {
+      showCountries({ sort: 'DESC' });
+      btnSort.textContent = 'DESC';
+    } else {
+      showCountries({ sort: 'ASC' });
+      btnSort.textContent = 'ASC';
+    }
   } else {
-    showCountries({ sort: 'ASC' });
-    btnSort.textContent = 'ASC';
-  };
-  searchInput.value = '';
+    if (!btnSort.classList.contains('active')) {
+      if (btnStartingWord.classList.contains('active')) {
+        showCountries({ start: searchText, sort: 'DESC' });
+      } else if (btnAnyWord.classList.contains('active')) {
+        showCountries({ contains: searchText, sort: 'DESC' });
+      } else {
+        showCountries({ contains: searchText, sort: 'DESC' });
+      }
+      btnSort.textContent = 'DESC';
+    } else {
+      if (btnStartingWord.classList.contains('active')) {
+        showCountries({ start: searchText, sort: 'ASC' });
+      } else if (btnAnyWord.classList.contains('active')) {
+        showCountries({ contains: searchText, sort: 'ASC' });
+      } else {
+        showCountries({ contains: searchText, sort: 'ASC' });
+      }
+      btnSort.textContent = 'ASC';
+    }
+  }
+
   btnSort.classList.toggle('active');
 });
 
 // Input Event Listener
-searchInput.addEventListener('input', (e) => {
-  btnSort.textContent = 'ASC';
-  btnSort.classList.remove('active');
-  const searchText = e.target.value;
+searchInput.addEventListener('input', () => {
+  const searchText = searchInput.value;
 
   if (searchText === '') {
-    showCountries({ sort: 'ASC' });
+    if (btnSort.classList.contains('active')) {
+      showCountries({ sort: 'DESC' });
+    } else {
+      showCountries({ sort: 'ASC' });
+    }
   } else {
     if (btnStartingWord.classList.contains('active')) {
       showCountries({ start: searchText });
