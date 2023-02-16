@@ -1,0 +1,122 @@
+body {
+  font-family: 'Roboto';
+  color: white;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: url('../images/globe-2.jpg');
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  margin: 0;
+  padding: 6% 0%;
+}
+
+h2 {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 36px;
+  letter-spacing: 10px;
+  text-transform: uppercase;
+}
+
+h3 {
+  margin-top: 0;
+  margin-bottom: 1%;
+  font-weight: normal;
+  font-size: 16px;
+}
+
+h4 {
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
+#search {
+  width: 300px;
+  padding: 10px 10px;
+  border-color: #b892ff;
+}
+
+#starting-word,
+#any-word,
+#sorting {
+  padding: 1% 0.5%;
+  margin: auto 0.5%;
+  background-color: #b892ff;
+  border-color: #b892ff;
+  color: white;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+#starting-word.active,
+#any-word.active,
+#sorting.active {
+  background-color: #6e44ff;
+  border-color: #6e44ff;
+}
+
+#starting-word {
+  width: 20%;
+}
+
+#any-word {
+  width: 30%;
+}
+
+#sorting {
+  width: 10%;
+}
+
+.button-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 50%;
+  margin-bottom: 1%;
+}
+
+.letters {
+  color: #f21b3f;
+}
+
+.count {
+  color: #4c956c;
+}
+
+.country {
+  color: rgb(44, 42, 42);
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 12px;
+  padding: 15px;
+  margin: 5px;
+  width: 10%;
+  height: 100px;
+  box-shadow: 1px 1px 5px lightgray;
+  border-radius: 10%;
+
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-image: url('../images/map_image.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.countries-container {
+  margin-top: 3%;
+  padding: 0% 10%;
+}
+
+.countries-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}

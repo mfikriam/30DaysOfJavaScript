@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>World Countries List</title>
+
+	<link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body>
+	<header>
+		<h2>World Countries List</h2>
+		<h4 id="total-countries"></h4>
+		<h3>
+			<!-- Countries start with <span class="letters">f</span> are <span class="count">67</span> -->
+		</h3>
+		<div class="button-wrapper">
+			<button id="starting-word" class="">Starting Word</button>
+			<button id="any-word" class="">Search With Any Word</button>
+			<button id="sorting" class="">ASC</button>
+		</div>
+		<div class="search-wrapper">
+			<input id="search" type="text" placeholder="Search country...">
+		</div>
+	</header>
+
+	<div class="countries-container">
+		<div class="countries-wrapper"></div>
+	</div>
+
+	<script src="./data/countries.js"></script>
+	<script src="./scripts/main.js"></script>
+</body>
+
+</html>
