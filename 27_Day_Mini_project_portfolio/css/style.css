@@ -1,0 +1,62 @@
+body {
+  font-family: 'Roboto';
+}
+
+h1 {
+  letter-spacing: 14px;
+  font-size: 48px;
+}
+
+h2 {
+  background-color: #EDDFDE;
+  padding: 2% 4%;
+}
+
+p {
+  font-size: 18px;
+  line-height: 200%;
+}
+
+.container {
+  padding: 1% 10%;
+}
+
+.challenge-title {
+  font-weight: bold;
+}
+
+.challenges-wrapper {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.challenges {
+  width: 20%;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 5% 2%;
+  background-color: #eddfde10;
+  box-shadow: 1px 1px 5px lightgray;
+  transition: all 0.5s ease;
+}
+
+.challenges:hover {
+  transform: scale(1.1);
+  background-color: #eddfde;
+}
+
+.technology {
+  font-size: xx-large;
+  text-transform: uppercase;
+  font-weight: 900;
+  transition: all 1s ease-in;
+}
+
+.icon {
+  transition: all 1s ease-in;
+}
+
+.title {
+  position: relative;
+  transition: all 1s ease-in;
+}
