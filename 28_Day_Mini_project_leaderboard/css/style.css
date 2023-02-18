@@ -1,0 +1,92 @@
+body {
+  font-family: 'Roboto';
+  color: #5B5A5B;
+}
+
+h1 {
+  font-weight: normal;
+}
+
+input {
+  border-style: solid;
+}
+
+input,
+#add-player {
+  padding: 1% 2%;
+  border-color: #E5C9C5;
+  /* margin: 0; */
+  width: 15%;
+}
+
+#add-player {
+  background-color: #E5C9C5;
+  color: white;
+  cursor: pointer;
+}
+
+p {
+  color: #f21b3f;
+  font-weight: bold;
+}
+
+.input-wrapper {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.container {
+  padding: 1% 15%;
+  text-align: center;
+}
+
+.player-wrapper {
+  text-transform: uppercase;
+}
+
+.player {
+  background-color: #E5C9C5;
+  margin-bottom: 1%;
+  display: flex;
+  padding: 2% 2%;
+  align-items: center;
+}
+
+.name-date-wrapper,
+.country,
+.score {
+  width: 25%;
+  text-align: start;
+}
+
+.btn-wrapper {
+  width: 25%;
+  text-align: center;
+}
+
+.date {
+  color: #9e8a89;
+  font-size: 12px;
+}
+
+.delete {
+  color: #f21b3f;
+}
+
+.delete,
+.add5,
+.subtract5 {
+  background-color: white;
+  padding: 5%;
+  width: 40px;
+  height: 40px;
+  border-style: none;
+  border-radius: 50%;
+}
+
+.delete:hover,
+.add5:hover,
+.subtract5:hover {
+  background-color: #DEF4B3;
+  cursor: pointer;
+}
