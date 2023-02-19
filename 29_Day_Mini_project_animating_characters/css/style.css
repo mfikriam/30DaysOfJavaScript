@@ -1,0 +1,15 @@
+body {
+  transition: all 2s ease-in-out;
+  padding: 3%;
+}
+
+div {
+  font-size: 100px;
+  line-height: 100px;
+  text-transform: uppercase;
+  transition: all 2s ease-in;
+}
+
+span {
+  transition: all 2s ease-in;
+}
