@@ -1,0 +1,120 @@
+body {
+  font-family: 'Montserrat';
+  text-align: center;
+}
+
+img {
+  height: 50px;
+}
+
+header {
+  padding: 2% 0%;
+}
+
+h1 {
+  margin: 0%;
+}
+
+input {
+  width: 50%;
+  padding: 1% 1%;
+  color: rgb(255, 165, 0);
+  font-size: 16px;
+  border-radius: 24px;
+  border: 1px solid rgb(104, 103, 103);
+  margin-bottom: 2%;
+}
+
+input:focus {
+  outline: none;
+}
+
+header,
+footer,
+.countries-container,
+.graph-container {
+  background-color: rgb(241, 241, 241);
+}
+
+.subtitle {
+  margin-bottom: 0%;
+}
+
+.search-container {
+  padding: 2% 0%;
+}
+
+.search-criteria {
+  margin: 0%;
+  font-weight: 600;
+}
+
+.title,
+.search-criteria {
+  color: rgb(255, 165, 0);
+}
+
+.search-criteria {
+  font-style: italic;
+}
+
+.button-wrapper {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+.button-wrapper>button {
+  text-transform: uppercase;
+  font-size: 13px;
+  width: 160px;
+  background-color: rgba(255, 166, 0, 0.74);
+  padding: 0.5% 2%;
+  border-radius: 24px;
+  border-color: rgb(255, 165, 0);
+  margin: 0% 1%;
+  cursor: pointer;
+}
+
+.button-wrapper>button.active {
+  background-color: rgb(255, 165, 0);
+}
+
+.fa-chart-bar {
+  color: rgb(255, 165, 0);
+  margin: 0% 1%;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.countries-container {
+  padding: 1% 1%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.country-wrapper {
+  background-color: white;
+  margin: 1%;
+  width: 10%;
+  padding: 1%;
+}
+
+.country-name {
+  color: rgb(255, 165, 0);
+  text-transform: uppercase;
+  font-size: 10px;
+  margin-bottom: 5%;
+}
+
+.country-description {
+  text-align: left;
+  justify-content: left;
+  font-size: 10px;
+}
+
+.country-description>p {
+  margin-top: 5%;
+  margin-bottom: 0%;
+}
