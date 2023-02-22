@@ -7,6 +7,53 @@ const searchCriteriaNode = body.querySelector('.search-criteria');
 const btnSortByName = body.querySelector('button[id="name"]');
 const btnSortByCapital = body.querySelector('button[id="capital"]');
 const btnSortByPopulation = body.querySelector('button[id="population"]');
+const scrollLinkDown = body.querySelector('.scroll-link-down');
+const scrollLinkUp = body.querySelector('.scroll-link-up');
+const chartTitle = body.querySelector('.chart-title');
+const charts = body.querySelector('.charts');
+
+
+// Render Most Populations Charts
+const renderMostPopulationsCharts = (countriesArray, def) => {
+  if (def) {
+    chartTitle.textContent = '10 Most Populated Countries In The World';
+  } else {
+    chartTitle.textContent = 'World Population';
+  }
+  charts.innerHTML = '';
+
+  // Add World Population
+  const worldPopulation = countries.reduce((acc, country) => acc += country.population, 0);
+  charts.innerHTML += `
+    <div class="chart-wrapper">
+      <div class="subject">World</div>
+      <div class="bar-wrapper">
+          <div class="bar" style="width: 100%;">
+            &nbsp;
+          </div>
+        </div>
+      <div class="count">${worldPopulation.toLocaleString('en-US')}</div>
+    </div>
+  `;
+
+  countriesArray
+    .sort((a, b) => b.population - a.population)
+    .slice(0, 10)
+    .forEach((country) => {
+      const barWidth = (country.population / worldPopulation) * 100;
+      charts.innerHTML += `
+          <div class="chart-wrapper">
+            <div class="subject">${country.name}</div>
+            <div class="bar-wrapper">
+              <div class="bar" style="width: ${barWidth}%;">
+                &nbsp;
+              </div>
+            </div>
+            <div class="count">${country.population.toLocaleString('en-US')}</div>
+          </div>
+        `;
+    });
+}
 
 // Render Countries List
 const renderCountriesList = (countriesArray) => {
@@ -85,6 +132,7 @@ const showCountries = ({
   const searchText = searchNode.value.toLowerCase();
   if (searchText === '') {
     renderCountriesList(countries);
+    renderMostPopulationsCharts(countries, true);
   } else {
     const filteredCountries = countries.filter((country) => {
       const name = country.name.toLowerCase();
@@ -98,6 +146,7 @@ const showCountries = ({
 
     searchCriteriaNode.textContent = `${filteredCountries.length} countries satisfied the search criteria`;
     renderCountriesList(filteredCountries);
+    renderMostPopulationsCharts(filteredCountries, false);
   }
 }
 
@@ -162,7 +211,23 @@ btnSortByPopulation.addEventListener('click', () => {
   btnSortByPopulation.classList.toggle('active');
 });
 
+// Add Scroll Down Animation
+scrollLinkDown.addEventListener('click', (e) => {
+  e.preventDefault();
+  const target = body.querySelector(scrollLinkDown.getAttribute('href'));
+  target.scrollIntoView({ behavior: 'smooth' });
+});
+
+// Add Scroll Up Animation
+scrollLinkUp.addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  });
+});
+
 // Starts
 subtitleNode.textContent = `Currently, we have ${countries.length} countries`;
 showCountries({ sortByName: 'ASC' });
-// console.log(btnSortByName);
+// renderMostPopulationsCharts(countries);
+// console.log();

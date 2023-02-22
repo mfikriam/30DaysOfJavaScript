@@ -30,9 +30,8 @@ input:focus {
 }
 
 header,
-footer,
 .countries-container,
-.graph-container {
+.chart-container {
   background-color: rgb(241, 241, 241);
 }
 
@@ -117,4 +116,67 @@ footer,
 .country-description>p {
   margin-top: 5%;
   margin-bottom: 0%;
+}
+
+.scroll-link-up {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+.chart-container {
+  padding: 2% 15%;
+  text-align: left;
+  font-size: small;
+}
+
+.chart-title {
+  text-align: center;
+  font-size: large;
+}
+
+.chart-wrapper {
+  display: flex;
+  /* justify-content: space-between; */
+  height: 30px;
+  margin-bottom: 1%;
+  align-items: center;
+}
+
+.subject {
+  width: 20%;
+  margin: 0;
+}
+
+.bar-wrapper {
+  display: flex;
+  width: 70%;
+}
+
+.bar {
+  background-color: rgb(242, 169, 59);
+  border-radius: 2%;
+  height: 25px;
+  /* width: 100%; */
+}
+
+.count {
+  margin-left: 1%;
+  width: 10px;
+}
+
+.scroll-link-up {
+  background-color: rgba(104, 103, 103, 0.678);
+  opacity: 0.5;
+  border: none;
+}
+
+.scroll-link-up:hover {
+  opacity: 1;
+}
+
+.fa-chevron-up {
+  color: rgb(255, 165, 0);
+  font-size: 35px;
+  cursor: pointer;
 }

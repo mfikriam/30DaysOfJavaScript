@@ -64,7 +64,8 @@ const countries = [
 			"Catalan"
 		],
 		"population": 77265,
-		"flag": "https://flagcdn.com/ad.svg",
+		"flag": "https://flagcdn.com/mf.svg",
+		// "flag": "https://flagcdn.com/ad.svg",
 		"region": "Europe",
 		"area": 468
 	},
