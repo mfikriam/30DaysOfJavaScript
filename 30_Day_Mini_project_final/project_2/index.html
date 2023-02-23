@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>30DaysOfJavaScript:30 Project 2</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" />
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body>
+
+  <header>
+    <h1>Validating Web Forms</h1>
+  </header>
+
+  <main>
+    <form action="#">
+      <div class="input-wrapper">
+        <label for="first_name">First Name</label>
+        <input type="text" id="first_name" />
+        <p id="first_name_error">First name must be alphanumeric and contain 3 - 16 characters</p>
+      </div>
+
+      <div class="input-wrapper">
+        <label for="last_name">Last Name</label>
+        <input type="text" id="last_name" />
+        <p id="last_name_error">Last name must be alphanumeric and contain 3 - 16 characters</p>
+      </div>
+
+      <div class="input-wrapper">
+        <label for="email">Email</label>
+        <input type="text" id="email" />
+        <p id="email_error">Email must be a valid address, e.g. example@example.com</p>
+      </div>
+
+      <div class="input-wrapper">
+        <label for="password">Password</label>
+        <input type="password" id="password" />
+        <p id="password_error">Password must be alphanumeric (@, _ and - are allowed) and between 6 - 20 characters</p>
+      </div>
+
+      <div class="input-wrapper">
+        <label for="telephone">Telephone</label>
+        <input type="text" id="telephone" />
+        <p id="telephone_error">A valid Telephone number (11 digits and 333-333-3334)</p>
+      </div>
+
+      <div class="input-wrapper">
+        <label for="your_bio">Your bio</label>
+        <input type="text" id="your_bio" />
+        <p id="your_bio_error">Bio must contain only lowercase letters, underscore, hyphens and be 8 - 50 characters</p>
+      </div>
+
+      <button type="submit" class="">Submit</button>
+    </form>
+  </main>
+
+  <script src="./scripts/main.js"></script>
+</body>
+
+</html>
